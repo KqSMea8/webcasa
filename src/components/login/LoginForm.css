@@ -1,0 +1,57 @@
+.form-group-collection {
+  display: flex;
+  flex-direction: column;
+  padding-left: 3em;
+  padding-right: 2em;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  color: #ddb05b;
+}
+
+.form-group label {
+  color: white;
+}
+
+.form-group input {
+  color: white;
+  width: 370px;
+  border-bottom: 1px solid white !important;
+}
+
+.form-group input:hover {
+  color: #ddb05b;
+}
+
+.ant-btn-primary {
+  background: #ddb05b;
+  border-color: #e2ab46d5;
+}
+
+.ant-btn-primary:hover {
+  background: #e2ab46d5;
+  border-color: #e2ab46d5;
+}
+
+.ant-btn-primary:focus {
+  background: #ddb05b;
+  border-color: #e2ab46d5;
+}
+
+.message {
+  margin-top: 5px;
+}
+
+.message a {
+  color: white;
+}
+
+.message a:hover {
+  color: #ddb05b
+}

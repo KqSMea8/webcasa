@@ -1,0 +1,123 @@
+{
+  "produtos": [
+    {
+      "id": 12,
+      "sku": 12064273040195392,
+      "title": "Espeto",
+      "description": "Prontinhos para sua churrasqueira!",
+      "tiposDisponiveis": ["Suino", "Frango", "Bovino"],
+      "style": "Cortado em cubos",
+      "preco": 3.50,
+      "installments": 0,
+      "currencyId": "BRL",
+      "currencyFormat": "R$",
+      "medida": "UN",
+      "isNew": true
+    },
+
+    {
+      "id": 13,
+      "sku": 51498472915966366,
+      "title": "Kafta",
+      "description": "Prontinhos para sua churrasqueira!",
+      "tiposDisponiveis": ["Frango", "Bovino", "Suino"],
+      "style": "No espeto",
+      "preco": 4.50,
+      "installments": 0,
+      "currencyId": "BRL",
+      "currencyFormat": "R$",
+      "medida": "UN",
+      "isNew": true
+    },
+
+    {
+      "id": 14,
+      "sku": 10686354557628303,
+      "title": "Contra Filé Angus",
+      "description": "Contra Filé Angus",
+      "tiposDisponiveis": ["Bovino"],
+      "style": "Lorem ipsum",
+      "preco": 28.90,
+      "installments": 0,
+      "currencyId": "BRL",
+      "currencyFormat": "R$",
+      "medida": "KG",
+      "isNew": false
+    },
+
+    {
+      "id": 15,
+      "sku": 11033926921508487,
+      "title": "Costela de Porco",
+      "description": "Costela de Porco",
+      "tiposDisponiveis": ["Suino"],
+      "style": "Lorem ipsum",
+      "preco": 28,
+      "installments": 0,
+      "currencyId": "BRL",
+      "currencyFormat": "R$",
+      "medida": "KG",
+      "isNew": false
+    },
+
+    {
+      "id": 11,
+      "sku": 39876704341265606,
+      "title": "Picanha Angus",
+      "description": "Picanha Angus",
+      "tiposDisponiveis": ["Bovino"],
+      "style": "Lorem ipsum",
+      "preco": 75,
+      "installments": 0,
+      "currencyId": "BRL",
+      "currencyFormat": "R$",
+      "medida": "KG",
+      "isNew": false
+    },
+
+    {
+      "id": 16,
+      "sku": 10412368723880253,
+      "title": "Linguiça Toscana",
+      "description": "Linguiça Toscana",
+      "tiposDisponiveis": ["Porco"],
+      "style": "Lorem ipsum",
+      "preco": 25.0,
+      "installments": 0,
+      "currencyId": "BRL",
+      "currencyFormat": "R$",
+      "medida": "KG",
+      "isNew": false
+    },
+
+    {
+      "id": 0,
+      "sku": 8552515751438644,
+      "title": "Peito de Frango",
+      "description": "Peito de Frango",
+      "tiposDisponiveis": ["Frango"],
+      "style": "Lorem ipsum",
+      "preco": 18.50,
+      "installments": 0,
+      "currencyId": "BRL",
+      "currencyFormat": "R$",
+      "medida": "KG",
+      "isNew": false
+    },
+
+    {
+      "id": 1,
+      "sku": 18644119330491312,
+      "title": "Coxa de Frango",
+      "description": "Coxa de Frango",
+      "tiposDisponiveis": ["Frango"],
+      "style": "Lorem ipsum",
+      "preco": 12.9,
+      "installments": 0,
+      "currencyId": "BRL",
+      "currencyFormat": "R$",
+      "medida": "KG",
+      "isNew": false
+    }
+  ]
+}
