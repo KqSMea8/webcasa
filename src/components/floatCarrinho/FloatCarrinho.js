@@ -81,8 +81,7 @@ class FloatCarrinho extends Component {
     if (!produtoQuantidade) {
       alert("Adicione algum produto na sacola!");
     }else {
-      alert(`Checkout - Subtotal: ${currencyFormat} ${util.formatPreco(totalPreco, currencyId)}`);
-      this.props.history.push("/checkout");
+      alert(`Encomenda - Subtotal: ${currencyFormat} ${util.formatPreco(totalPreco, currencyId)}`);
     }
   }
 
@@ -161,7 +160,7 @@ class FloatCarrinho extends Component {
               </small>
             </div>
             <div onClick={() => this.proceedToCheckout()} className="buy-btn">
-              Checkout
+              Encomendar
             </div>
           </div>
         </div>

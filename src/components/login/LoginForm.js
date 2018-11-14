@@ -24,11 +24,11 @@ class LoginForm extends Component {
   render() {
     let {email, password} = this.state;
     let {isLoginPending, loginError} = this.props;
-
+    
   return (
-        <div className="form-group-collection">
+        <div className="login-form-group-collection">
           <MuiThemeProvider theme={theme}>
-            <div className="form-group">
+            <div className="login-form-group">
               <TextField
               id="user"
               label="Email"
@@ -37,7 +37,7 @@ class LoginForm extends Component {
               onChange={e => this.setState({email: e.target.value})}
               margin="normal"/>
             </div>
-            <div className="form-group">
+            <div className="login-form-group">
               <TextField
               id="password"
               type="password"
@@ -57,7 +57,7 @@ class LoginForm extends Component {
             </div>
           </Col>
           <Col className="gutter-row" span={18}>
-            <div className="message">
+            <div className="login-message">
             <Link to="/cadastrar">
               Ainda não é cadastrado? Registre-se!
             </Link>

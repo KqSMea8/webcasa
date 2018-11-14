@@ -1,31 +1,31 @@
-.form-group-collection {
+.login-form-group-collection {
   display: flex;
   flex-direction: column;
   padding-left: 3em;
   padding-right: 2em;
 }
 
-.form-group {
+.login-form-group {
   display: flex;
   flex-direction: row;
   margin-bottom: 10px;
 }
 
-.form-group label {
+.login-form-group label {
   color: #ddb05b;
 }
 
-.form-group label {
+.login-form-group label {
   color: white;
 }
 
-.form-group input {
+.login-form-group input {
   color: white;
   width: 370px;
   border-bottom: 1px solid white !important;
 }
 
-.form-group input:hover {
+.login-form-group input:hover {
   color: #ddb05b;
 }
 
@@ -44,14 +44,14 @@
   border-color: #e2ab46d5;
 }
 
-.message {
+.login-message {
   margin-top: 5px;
 }
 
-.message a {
+.login-message a {
   color: white;
 }
 
-.message a:hover {
+.login-message a:hover {
   color: #ddb05b
 }

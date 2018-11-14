@@ -9,6 +9,7 @@ import { Layout } from 'antd';
 import Prateleira from '../components/prateleira/Prateleira';
 import FloatCarrinho from './../components/floatCarrinho/FloatCarrinho';
 import FloatLogin from './../components/login/FloatLogin';
+import CadastroForm from './../components/login/CadastroForm';
 import BarraMenu from './../components/menu/Menu';
 import store from '../store';
 
@@ -30,6 +31,7 @@ class App extends Component {
                 <main style={{ position: 'relative', top: '80px'}}>
                     <div>
                         <Route exact path="/" component={Prateleira}/>
+                        <Route exact path="/cadastrar" component={CadastroForm}/>
                     </div>
                 </main>
               </Content>

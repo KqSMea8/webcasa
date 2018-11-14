@@ -65,7 +65,7 @@ class FloatLogin extends Component {
           </div>
 
           <div className="float-carrinho__prateleira-container">
-          <LoginForm/>
+            <LoginForm/>
           </div>
 
           <div className="float-carrinho__footer">
