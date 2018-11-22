@@ -31,11 +31,8 @@ class BarraMenu extends Component {
         selectedKeys={[this.state.current]}
         mode="horizontal"
       >
-        <Menu.Item key="mail">
-          <Icon type="mail" />Teste
-        </Menu.Item>
         <Menu.Item key="usuario" style={{ float: 'right' }}>
-          <Link to="/usuario/mariana">{ user && user.usuario }</Link>
+          <Link to="/usuario">{ user && user.usuario }</Link>
         </Menu.Item>
       </Menu>
     );

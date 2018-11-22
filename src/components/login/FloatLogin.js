@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import LoginForm from './LoginForm';
 import PropTypes from 'prop-types';
 import { logout } from '../../store/reducers/loginReducer';
+import { message } from 'antd';
 
 class FloatLogin extends Component {
   
@@ -14,6 +15,8 @@ class FloatLogin extends Component {
   openFloatCarrinho = () => {
     if(this.props.user) {
       this.props.logout();
+      window.location = 'http://localhost:3000/';
+      message.warning('Você deslogou!');
     } else {
       this.setState({ isOpen: true });
     }

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { login } from '../../store/reducers/loginReducer';
-import { TextField, MuiThemeProvider, createMuiTheme } from '@material-ui/core';
-import { Row, Col, Layout, Steps, Button, message } from 'antd';
+import { createMuiTheme } from '@material-ui/core';
+import { Layout, Steps, Button, message } from 'antd';
+import { Form, Input, Select, AutoComplete, DatePicker } from 'antd';
+
+
 import './CadastroForm.css';
 
 const theme = createMuiTheme({
@@ -14,48 +15,265 @@ const theme = createMuiTheme({
 
 const { Content } = Layout;
 
+
+const FormItem = Form.Item;
+const Option = Select.Option;
+const AutoCompleteOption = AutoComplete.Option;
+
 class Step1 extends Component {
 
   constructor(props) {
     super(props);
   }
 
+  state = {
+    confirmDirty: false,
+    autoCompleteResult: [],
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.form.validateFieldsAndScroll((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
+      }
+    });
+  }
+
+  handleConfirmBlur = (e) => {
+    const value = e.target.value;
+    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
+  }
+
+  compararPrimeiraSenha = (rule, value, callback) => {
+    const form = this.props.form;
+    if (value && value !== form.getFieldValue('senha')) {
+      callback('As senhas são diferentes!');
+    } else {
+      callback();
+    }
+  }
+
+  validarComOutraSenha = (rule, value, callback) => {
+    const form = this.props.form;
+    if (value && this.state.confirmDirty) {
+      form.validateFields(['confirm'], { force: true });
+    }
+    callback();
+  }
+
   render() {
-    return(
-      <div>
-        <MuiThemeProvider theme={theme}>
-          <div>
-            <TextField
-            id="user"
-            label="Email"
-            InputLabelProps={{ shrink: true }}
-            margin="normal"/>
-          </div>
-          <div>
-            <TextField
-            id="password"
-            type="password"
-            label="Senha"
-            InputLabelProps={{ shrink: true }}
-            margin="normal"/>
-          </div>
-        </MuiThemeProvider>
-      </div>
-    )
+    const { getFieldDecorator } = this.props.form;
+
+    const formItemLayout = {
+      labelCol: {
+        xs: { span: 16 },
+        sm: { span: 8 },
+      },
+      wrapperCol: {
+        xs: { span: 16 },
+        sm: { span: 8 },
+      },
+    };
+
+    return (
+      <Form onSubmit={this.handleSubmit}>
+        <FormItem
+          {...formItemLayout}
+          label="E-mail"
+        >
+          {getFieldDecorator('email', {
+            rules: [{
+              type: 'email', message: 'Não é um email válido.',
+            }, {
+              required: true, message: 'Por favor, coloque seu email!',
+            }],
+          })(
+            <Input />
+          )}
+        </FormItem>
+        <FormItem
+          {...formItemLayout}
+          label="Senha"
+        >
+          {getFieldDecorator('senha', {
+            rules: [{
+              required: true, message: 'Por favor coloque sua senha!',
+            }, {
+              validator: this.validarComOutraSenha,
+            }],
+          })(
+            <Input type="password" />
+          )}
+        </FormItem>
+        <FormItem
+          {...formItemLayout}
+          label="Confirme a senha"
+        >
+          {getFieldDecorator('confirm', {
+            rules: [{
+              required: true, message: 'Por favor confirme sua senha!',
+            }, {
+              validator: this.compararPrimeiraSenha,
+            }],
+          })(
+            <Input type="password" onBlur={this.handleConfirmBlur} />
+          )}
+        </FormItem>
+      </Form>
+    );
   }
 }
 
-const Step = Steps.Step; 
-   
+const Step1p = Form.create()(Step1);
+
+
+
+class Step2 extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  state = {
+    confirmDirty: false,
+    autoCompleteResult: [],
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.form.validateFieldsAndScroll((err, values) => {
+      if (!err) {
+        console.log('Recebeu valores do formulário: ', values);
+      }
+    });
+  }
+
+  handleConfirmBlur = (e) => {
+    const value = e.target.value;
+    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
+  }
+
+  render() {
+    const { getFieldDecorator } = this.props.form;
+
+    const formItemLayout = {
+      labelCol: {
+        xs: { span: 16 },
+        sm: { span: 8 },
+      },
+      wrapperCol: {
+        xs: { span: 16 },
+        sm: { span: 8 },
+      },
+    };
+    const tailFormItemLayout = {
+      wrapperCol: {
+        xs: {
+          span: 16,
+          offset: 0,
+        },
+        sm: {
+          span: 16,
+          offset: 8,
+        },
+      },
+    };
+    const prefixSelector = getFieldDecorator('prefix', {
+      initialValue: '19',
+    })(
+      <Select style={{ width: 70 }}>
+        <Option value="19">+19</Option>
+      </Select>
+    );
+    const config = {
+      rules: [{ type: 'object', required: true, message: 'Por favor selecione a data!' }],
+    };
+    return (
+      <Form onSubmit={this.handleSubmit}>
+          <FormItem
+            {...formItemLayout}
+            label="Primeiro Nome"
+          >
+            {getFieldDecorator('nome', {
+              rules: [{ required: true, message: 'Por favor, coloque seu nome!' }],
+            })(
+              <Input type="text"/>
+            )}
+        </FormItem>
+        <FormItem
+            {...formItemLayout}
+            label="Sobrenome"
+          >
+            {getFieldDecorator('sobrenome', {
+              rules: [{ required: true, message: 'Por favor, coloque seu sobrenome!' }],
+            })(
+              <Input type="text"/>
+            )}
+        </FormItem>
+        <FormItem
+          {...formItemLayout}
+          label="Telefone"
+        >
+          {getFieldDecorator('telefone', {
+            rules: [{ required: true, message: 'Por favor, coloque o número de seu telefone!' }],
+          })(
+            <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+          )}
+        </FormItem>
+        <FormItem
+          {...formItemLayout}
+          label="Endereço"
+        >
+          {getFieldDecorator('endereco', {
+            rules: [{ required: true, message: 'Por favor, coloque seu endereço!' }],
+          })(
+            <Input type="text"/>
+          )}
+        </FormItem>
+        <FormItem
+          {...formItemLayout}
+          label="Cidade"
+        >
+          {getFieldDecorator('cidade', {
+            rules: [{ required: true, message: 'Por favor, coloque sua cidade!' }],
+          })(
+            <Input type="text" />
+          )}
+        </FormItem>
+        <FormItem
+            {...formItemLayout}
+            label="CEP"
+          >
+            {getFieldDecorator('CEP', {
+              rules: [{ required: true, message: 'Por favor, coloque seu CEP!' }],
+            })(
+              <Input type="text" />
+            )}
+        </FormItem>
+        <FormItem
+          {...formItemLayout}
+          label="Data Nascimento"
+        >
+          {getFieldDecorator('data-nasc', config)(
+            <DatePicker />
+          )}
+        </FormItem>
+      </Form>
+    );
+  }
+}
+
+const Step2p = Form.create()(Step2);
+
+const Step = Steps.Step;
+
 const steps = [{
-  title: 'Primeiro',
-  content: <Step1/>,
+  title: 'Usuário',
+  content: <Step1p/>,
 }, {
-  title: 'Second',
-  content: 'Second-content',
-}, {
-  title: 'Last',
-  content: 'Last-content',
+  title: 'Dados Pessoais',
+  content: <Step2p/>,
 }];
 
 class CadastroForm extends Component {
@@ -89,17 +307,17 @@ class CadastroForm extends Component {
         <div className="steps-action">
           {
             current < steps.length - 1
-            && <Button type="primary" onClick={() => this.next()}>Next</Button>
+            && <Button type="primary" onClick={() => this.next()}>Próximo</Button>
           }
           {
             current === steps.length - 1
-            && <Button type="primary" onClick={() => message.success('Processing complete!')}>Done</Button>
+            && <Button type="primary" onClick={() => message.success('Cadastro completo!')}>Cadastrar</Button>
           }
           {
             current > 0
             && (
             <Button style={{ marginLeft: 8 }} onClick={() => this.prev()}>
-              Previous
+              Anterior
             </Button>
             )
           }
