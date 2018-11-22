@@ -2,7 +2,7 @@
   "produtos": [
     {
       "id": 12,
-      "sku": 12064273040195392,
+      "sku": 1,
       "title": "Espeto",
       "description": "Prontinhos para sua churrasqueira!",
       "tiposDisponiveis": ["Suino", "Frango", "Bovino"],
@@ -17,7 +17,7 @@
 
     {
       "id": 13,
-      "sku": 51498472915966366,
+      "sku": 2,
       "title": "Kafta",
       "description": "Prontinhos para sua churrasqueira!",
       "tiposDisponiveis": ["Frango", "Bovino", "Suino"],
@@ -32,7 +32,7 @@
 
     {
       "id": 14,
-      "sku": 10686354557628303,
+      "sku": 3,
       "title": "Contra Filé Angus",
       "description": "Contra Filé Angus",
       "tiposDisponiveis": ["Bovino"],
@@ -47,7 +47,7 @@
 
     {
       "id": 15,
-      "sku": 11033926921508487,
+      "sku": 4,
       "title": "Costela de Porco",
       "description": "Costela de Porco",
       "tiposDisponiveis": ["Suino"],
@@ -62,7 +62,7 @@
 
     {
       "id": 11,
-      "sku": 39876704341265606,
+      "sku": 5,
       "title": "Picanha Angus",
       "description": "Picanha Angus",
       "tiposDisponiveis": ["Bovino"],
@@ -77,7 +77,7 @@
 
     {
       "id": 16,
-      "sku": 10412368723880253,
+      "sku": 6,
       "title": "Linguiça Toscana",
       "description": "Linguiça Toscana",
       "tiposDisponiveis": ["Porco"],
@@ -92,7 +92,7 @@
 
     {
       "id": 0,
-      "sku": 8552515751438644,
+      "sku": 7,
       "title": "Peito de Frango",
       "description": "Peito de Frango",
       "tiposDisponiveis": ["Frango"],
@@ -107,7 +107,7 @@
 
     {
       "id": 1,
-      "sku": 18644119330491312,
+      "sku": 8,
       "title": "Coxa de Frango",
       "description": "Coxa de Frango",
       "tiposDisponiveis": ["Frango"],

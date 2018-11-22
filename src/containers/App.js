@@ -22,6 +22,7 @@ class App extends Component {
       <div className="App">
         <Provider store={store}>
         <BrowserRouter>
+        
             <Layout>
               <Header className="header" style={{ position: 'fixed', zIndex: 1, width: '100%', background: '#1b1a20' }}>
                 <Link to="/"><div className="logo"/></Link>
@@ -31,6 +32,7 @@ class App extends Component {
                 <main style={{ position: 'relative', top: '80px'}}>
                     <div>
                         <Route exact path="/" component={Prateleira}/>
+                        <Route exact path="/admin" component={() => window.location = 'http://localhost:3000/#/login'}/>
                         <Route exact path="/cadastrar" component={CadastroForm}/>
                     </div>
                 </main>
