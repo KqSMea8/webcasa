@@ -293,6 +293,11 @@ class CadastroForm extends Component {
     this.setState({ current });
   }
 
+  handleCadastro() {
+    message.success('Cadastro completo!');
+    setTimeout(function(){ window.location = 'http://localhost:3000/'; }, 1500);
+  }
+
   render() {
     let { current } = this.state;
 
@@ -311,7 +316,7 @@ class CadastroForm extends Component {
           }
           {
             current === steps.length - 1
-            && <Button type="primary" onClick={() => message.success('Cadastro completo!')}>Cadastrar</Button>
+            && <Button type="primary" onClick={this.handleCadastro}>Cadastrar</Button>
           }
           {
             current > 0

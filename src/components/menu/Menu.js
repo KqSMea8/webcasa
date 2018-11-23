@@ -34,6 +34,9 @@ class BarraMenu extends Component {
         <Menu.Item key="usuario" style={{ float: 'right' }}>
           <Link to="/usuario">{ user && user.usuario }</Link>
         </Menu.Item>
+        <Menu.Item key="encomendas" style={{ float: 'right' }}>
+          <Link to="/encomendas">{ user && `Minhas Encomendas` }</Link>
+        </Menu.Item>
       </Menu>
     );
   }

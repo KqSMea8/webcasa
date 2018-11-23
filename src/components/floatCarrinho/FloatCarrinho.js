@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loadCarrinho, removeProduto } from '../../store/actions/floatCarrinhoActions';
 import { updateCarrinho } from '../../store/actions/updateCarrinhoActions';
-
+import { message } from 'antd';
 import CarrinhoProduto from './CarrinhoProduto';
 
 import persistentCarrinho from "../../persistentCarrinho";
@@ -77,16 +77,21 @@ class FloatCarrinho extends Component {
 
   proceedToCheckout = () => {
     const { totalPreco, produtoQuantidade, currencyFormat, currencyId } = this.props.carrinhoTotals;
-
-    if (!produtoQuantidade) {
-      alert("Adicione algum produto na sacola!");
-    }else {
-      alert(`Encomenda - Subtotal: ${currencyFormat} ${util.formatPreco(totalPreco, currencyId)}`);
+    const { user } = this.props;
+    if(user) {
+      if (!produtoQuantidade) {
+        message.warning("Adicione algum produto na sacola!");
+      }else {
+        message.success(`Encomenda - Subtotal: ${currencyFormat} ${util.formatPreco(totalPreco, currencyId)}`);
+        setTimeout(function(){ window.location = 'http://localhost:3000/encomendas'; }, 1500);
+      }
+    } else {
+      message.warning("Faça login para encomendar.");
     }
   }
 
   render() {
-    const { carrinhoTotals, carrinhoProdutos, removeProduto } = this.props;
+    const { carrinhoTotals, carrinhoProdutos, removeProduto, user } = this.props;
 
     const produtos = carrinhoProdutos.map(p => {
       return (
@@ -183,6 +188,7 @@ const mapStateToProps = state => ({
   newProduto: state.carrinhoProdutos.item,
   produtoToRemove: state.carrinhoProdutos.itemToRemove,
   carrinhoTotals: state.carrinhoTotals.item,
+  user: state.login.user,
 });
 
 export default connect(mapStateToProps, { loadCarrinho, updateCarrinho, removeProduto})(FloatCarrinho);

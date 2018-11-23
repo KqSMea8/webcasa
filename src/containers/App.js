@@ -11,6 +11,7 @@ import FloatCarrinho from './../components/floatCarrinho/FloatCarrinho';
 import FloatLogin from './../components/login/FloatLogin';
 import CadastroForm from './../components/login/CadastroForm';
 import UsuarioForm from './../components/login/UsuarioForm';
+import UsuarioEncomendas from './../components/login/UsuarioEncomendas';
 import BarraMenu from './../components/menu/Menu';
 import store from '../store';
 
@@ -35,6 +36,7 @@ class App extends Component {
                         <Route exact path="/admin" component={() => window.location = 'http://localhost:3001/#/login'}/>
                         <Route exact path="/cadastrar" component={CadastroForm}/>
                         <Route exact path="/usuario" component={UsuarioForm}/>
+                        <Route exact path="/encomendas" component={UsuarioEncomendas}/>
                     </div>
                 </main>
               </Content>

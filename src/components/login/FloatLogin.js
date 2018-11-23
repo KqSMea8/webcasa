@@ -6,7 +6,7 @@ import { logout } from '../../store/reducers/loginReducer';
 import { message } from 'antd';
 
 class FloatLogin extends Component {
-  
+
   state = {
     isOpen: false,
   };
@@ -15,7 +15,7 @@ class FloatLogin extends Component {
   openFloatCarrinho = () => {
     if(this.props.user) {
       this.props.logout();
-      window.location = 'http://localhost:3000/';
+      setTimeout(function(){ window.location = 'http://localhost:3000/'; }, 1500);
       message.warning('Você deslogou!');
     } else {
       this.setState({ isOpen: true });
